@@ -90,7 +90,7 @@ match WhitespaceEOL /\s\+$/
 "keyboard mapping
 nnoremap <F6> :call UpdateCtags()<CR>
 nnoremap <F7> :TlistToggle<CR>
-nnoremap <F88888888> :NERDTreeToggle<CR>
+nnoremap <F8> :NERDTreeToggle<CR>
 inoremap ( ()<ESC>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
