@@ -44,8 +44,9 @@
    " Put your non-Plugin stuff after this line
 
 Plugin 'taglist.vim'
-Plugin 'NERD_tree-Project'                                                                                
+Plugin 'NERD_tree-Project'
 Plugin 'The-NERD-tree'
+Plugin 'SuperTab'
 
 
 set nocompatible
