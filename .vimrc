@@ -47,7 +47,34 @@ Plugin 'taglist.vim'
 Plugin 'NERD_tree-Project'                                                                                
 Plugin 'The-NERD-tree'
 
+
+set nocompatible
+set backspace=indent,eol,start
+
+source ~/.vim/autoload/custom.vim
+
+"NERDTree default setting
 let NERDTreeWinPos="right"
+
+"TagList default setting
+let Tlist_Exit_OnlyWindow = 1
+
+"ctags
+function! UpdateCtags()
+    let curdir=getcwd()
+    while !filereadable("./tags")
+        cd ..
+        if getcwd() == "/"
+            break
+        endif
+    endwhile
+    if filewritable("./tags")
+        !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+        TlistUpdate
+    endif
+    execute ":cd " . curdir
+endfunction
+
 
 set tabstop=4
 set shiftwidth=4
@@ -56,3 +83,15 @@ colorscheme asmanian_blood
 " " 设置行尾空格高亮显示
 highlight WhitespaceEOL ctermbg=red guibg=red 
 match WhitespaceEOL /\s\+$/
+
+
+
+"keyboard mapping
+nnoremap <F6> :call UpdateCtags()<CR>
+nnoremap <F7> :TlistToggle<CR>
+nnoremap <F88888888> :NERDTreeToggle<CR>
+inoremap ( ()<ESC>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+inoremap " ""<Esc>i
+
