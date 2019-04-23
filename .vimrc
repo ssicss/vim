@@ -59,6 +59,8 @@ let NERDTreeWinPos="right"
 
 "TagList default setting
 let Tlist_Exit_OnlyWindow = 1
+let Tlist_Show_One_File= 1
+let Tlist_GainFocus_On_ToggleOpen= 1
 
 "ctags
 function! UpdateCtags()
@@ -79,7 +81,8 @@ endfunction
 
 set tabstop=4
 set shiftwidth=4
-colorscheme asmanian_blood 
+syntax on
+"colorscheme asmanian_blood 
 
 " " 设置行尾空格高亮显示
 highlight WhitespaceEOL ctermbg=red guibg=red 
